@@ -205,16 +205,16 @@ nav.pages a.active{opacity:1; border-color:var(--gold); color:var(--brown-deep);
 /* ---------- Testimonials (Kind Words) ---------- */
 .kind{padding:65px 0; background:var(--cream-2); margin:35px auto;}
 .kind .head{text-align:center; margin-bottom:32px;}
-.tgrid{display:grid; grid-template-columns:repeat(3,1fr); gap:34px;}
-.tcard{border-radius:var(--radius-sm); padding:28px 24px; min-height:200px; display:flex; flex-direction:column; justify-content:space-between; position:relative; overflow:hidden; box-shadow:0 16px 30px -18px rgba(44,39,23,0.25);}
+.tgrid{display:grid; grid-template-columns:repeat(3,1fr); gap:30px; align-items:stretch;}
+.tcard{border-radius:var(--radius-sm); padding:30px 24px; min-height:210px; display:flex; flex-direction:column; justify-content:space-between; position:relative; overflow:hidden; box-shadow:0 16px 30px -18px rgba(44,39,23,0.25);}
 .tcard::after{content:''; position:absolute; inset:0; opacity:0.28; z-index:0;}
 .tcard > *{position:relative; z-index:1;}
 .tcard.cream{background:var(--cream); color:var(--ink);}
 .tcard.brown{background:var(--brown-deep); color:var(--cream);}
 .tcard.olive{background:var(--olive-mid); color:var(--cream);}
-.tcard .mark{font-family:var(--serif); font-size:40px; color:var(--gold); line-height:1;}
+.tcard .mark{font-family:var(--serif); font-size:36px; color:var(--gold); line-height:1;}
 .tcard.brown .mark, .tcard.olive .mark{color:rgba(245,241,230,0.55);}
-.tcard p.quote{font-size:14.5px; margin:14px 0 18px; line-height:1.5;}
+.tcard p.quote{font-size:13.5px; margin:12px 0 16px; line-height:1.5;}
 .tcard .who{font-size:12px; opacity:0.75; font-style:italic; font-family:var(--serif);}
 
 /* ---------- Blog teaser / grid ---------- */
@@ -369,7 +369,7 @@ footer.site{background:var(--brown-deep); color:rgba(245,241,230,0.7); padding:4
 @media(max-width:960px){
   .hero .wrap{grid-template-columns:1fr;}
   .hero-photo{max-width:420px;}
-  .help-grid, .tgrid, .bgrid{grid-template-columns:1fr;}
+  .help-grid, .tgrid, .bgrid{grid-template-columns:1fr 1fr; gap:24px;}
   .about-grid, .contact-grid{grid-template-columns:1fr;}
 
   .statement, .help, .kind, .journey, .cta-split, .quote-band{
