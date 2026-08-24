@@ -9,13 +9,23 @@
 <title>Coaching with Katrina</title>
 <meta name="description" content="Life and career coaching with Katrina Paris — clarity, growth, and purpose.">
 <link rel="stylesheet" href="css/style.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3CLBPL3VN0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3CLBPL3VN0');
+</script>
 </head>
 <body>
 
 <header class="site">
   <div class="nav-wrap">
-     <img src="img/logo-full.png" alt="Coaching with Katrina" class="logo-img">
-</a>
+    <a href="index.html" class="logo">
+      <img src="img/logo-full.png" alt="Coaching with Katrina" class="logo-img">
+    </a>
     <button class="menu-toggle" id="menuToggle">☰</button>
     <nav class="pages" id="pagesNav">
       <a href="index.html" class="active">Home</a>
@@ -32,7 +42,7 @@
 <main>
 
   <!-- Hero -->
-  <section class="hero" reveal>
+  <section class="hero">
     <div class="wrap">
       <div>
         <h1>Create a life and career that feel truly yours.</h1>
@@ -48,7 +58,7 @@
   </section>
 
   <!-- Statement band -->
-  <section class="statement" reveal>
+  <section class="statement reveal">
     <div class="wrap">
       <h2>You don't need to become someone else.<br>You need to become more fully <em>yourself</em>.</h2>
       <p>My role is to help you understand yourself, challenge what no longer serves you, and move forward with intention and confidence.</p>
@@ -56,11 +66,11 @@
   </section>
 
   <!-- How I can help -->
-  <section class="help" reveal>
+  <section class="help">
     <div class="wrap">
-      <div class="head"><h2>How I Can Help</h2></div>
+      <div class="head reveal"><h2>How I Can Help</h2></div>
       <div class="help-grid">
-        <div class="help-card life">
+        <div class="help-card life reveal" style="transition-delay:0s">
           <div class="icon">
             <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3C7 5 5 9 5 13a7 7 0 0 0 14 0c0-4-2-8-7-10Z"/><path stroke-linecap="round" d="M12 21V11"/></svg>
           </div>
@@ -68,7 +78,7 @@
           <p>Gain clarity, build self-confidence and create a more fulfilling life aligned with who you are.</p>
           <a href="services.html" class="link-arrow">Learn More →</a>
         </div>
-        <div class="help-card career">
+        <div class="help-card career reveal" style="transition-delay:0.15s">
           <div class="icon">
             <svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="1.5" stroke-linecap="round" stroke-linejoin="round"/><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V5.5A1.5 1.5 0 0 1 9.5 4h5A1.5 1.5 0 0 1 16 5.5V7"/><path stroke-linecap="round" d="M3 12h18"/></svg>
           </div>
@@ -76,7 +86,7 @@
           <p>Navigate career transitions, make aligned decisions and step into your professional potential.</p>
           <a href="services.html" class="link-arrow">Learn More →</a>
         </div>
-        <div class="help-card growth">
+        <div class="help-card growth reveal" style="transition-delay:0.3s">
           <div class="icon">
             <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.2" stroke-linecap="round" stroke-linejoin="round"/><path stroke-linecap="round" stroke-linejoin="round" d="M5 20c0-3.6 3.1-6.5 7-6.5s7 2.9 7 6.5"/></svg>
           </div>
@@ -89,7 +99,7 @@
   </section>
 
   <!-- Quote band -->
-  <section class="quote-band" reveal>
+  <section class="quote-band reveal">
     <div class="ph ph-water ripple-photo"></div>
     <div class="wrap">
       <div class="qtext">
@@ -98,24 +108,24 @@
         <a href="about.html" class="btn btn-cream">Discover My Approach</a>
       </div>
     </div>
-</section>
+  </section>
 
   <!-- Kind words -->
-  <section class="kind" reveal>
+  <section class="kind">
     <div class="wrap">
-      <div class="head"><h2 class="eyebrow center">Kind Words</h2></div>
+      <div class="head reveal"><h2 class="eyebrow center">Kind Words</h2></div>
       <div class="tgrid">
-        <div class="tcard cream">
+        <div class="tcard cream reveal" style="transition-delay:0s">
           <span class="mark">"</span>
           <p class="quote">I leave the sessions feeling truly calm, happy, and reassured. I can genuinely see the positive changes in myself with each session.</p>
           <span class="who">— Maïa</span>
         </div>
-        <div class="tcard brown">
+        <div class="tcard brown reveal" style="transition-delay:0.15s">
           <span class="mark">"</span>
           <p class="quote">Katrina really helped me to work on becoming a better version of myself.</p>
           <span class="who">— Sonam</span>
         </div>
-        <div class="tcard olive">
+        <div class="tcard olive reveal" style="transition-delay:0.3s">
           <span class="mark">"</span>
           <p class="quote">Her questions are thought provoking. I especially like it when she gives me suggestions when I don't find the answers.</p>
           <span class="who">— Aswin</span>
@@ -125,26 +135,26 @@
   </section>
 
   <!-- Blog teaser -->
-  <section class="journey" reveal>
+  <section class="journey">
     <div class="wrap">
-      <div class="head">
+      <div class="head reveal">
         <h2 class="eyebrow left">Thoughts For Your Journey</h2>
         <a href="blog.html" class="link-arrow">View All Blog Posts →</a>
       </div>
       <div class="bgrid">
-        <div class="bpost">
+        <div class="bpost reveal" style="transition-delay:0s">
           <div class="ph ph-mindset"></div>
           <span class="cat">Mindset</span>
           <h3>Why perfectionism keeps you stuck</h3>
           <a href="blog.html" class="link-arrow">Read More →</a>
         </div>
-        <div class="bpost">
+        <div class="bpost reveal" style="transition-delay:0.15s">
           <div class="ph ph-career"></div>
           <span class="cat">Career</span>
           <h3>How to know when it's time for a career change</h3>
           <a href="blog.html" class="link-arrow">Read More →</a>
         </div>
-        <div class="bpost">
+        <div class="bpost reveal" style="transition-delay:0.3s">
           <div class="ph ph-beach"></div>
           <span class="cat">Personal Growth</span>
           <h3>Learning to set boundaries without guilt</h3>
@@ -155,7 +165,7 @@
   </section>
 
   <!-- CTA split -->
-  <section class="cta-split" reveal>
+  <section class="cta-split reveal">
     <div class="wrap">
       <div class="text">
         <h2>Ready to take the next step?</h2>
@@ -164,16 +174,16 @@
       </div>
     </div>
     <div class="ph ph-candle"></div>
-</section>
+  </section>
 
 </main>
 
-<footer class="site" reveal>
+<footer class="site">
   <div class="wrap">
-    <div class="foot-badge"><img src="img/logo-full.png" alt="Katrina Paris logo"></div>
+    <div class="foot-badge"><img src="img/logo-full.png" alt="Coaching with Katrina logo"></div>
     <div class="foot-grid">
       <div>
-        <div class="foot-logo">Katrina Paris</div>
+        <div class="foot-logo">Coaching with Katrina</div>
         <p>Life &amp; career coaching for the moments you feel stuck between who you were and who you're becoming.</p>
       </div>
       <div>
@@ -185,13 +195,13 @@
       </div>
       <div>
         <h4>Connect</h4>
-        <a href="#">@coachingwithkatrinaparis</a>
-        <a href="#">hello@katrinaparis.coach</a>
+        <a href="https://www.instagram.com/coachingwithkatrinaparis/" target="_blank" rel="noopener noreferrer">@coachingwithkatrinaparis</a>
         <a href="contact.html">Book a Discovery Call</a>
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© 2026 Katrina Paris Coaching. All rights reserved.</span>
+      <span>© 2026 Coaching with Katrina. All rights reserved.</span>
+      <span>Site template</span>
     </div>
   </div>
 </footer>

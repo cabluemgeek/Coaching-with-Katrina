@@ -8,13 +8,23 @@
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <title>Services — Coaching with Katrina</title>
 <link rel="stylesheet" href="css/style.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3CLBPL3VN0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3CLBPL3VN0');
+</script>
 </head>
 <body>
 
 <header class="site">
   <div class="nav-wrap">
-     <img src="img/logo-full.png" alt="Coaching with Katrina" class="logo-img">
-</a>
+    <a href="index.html" class="logo">
+      <img src="img/logo-full.png" alt="Coaching with Katrina" class="logo-img">
+    </a>
     <button class="menu-toggle" id="menuToggle">☰</button>
     <nav class="pages" id="pagesNav">
       <a href="index.html">Home</a>
@@ -30,7 +40,7 @@
 
 <main>
 
-  <section class="page-hero" reveal>
+  <section class="page-hero">
     <div class="wrap">
       <span class="eyebrow">Services</span>
       <h1>Ways to work together.</h1>
@@ -38,7 +48,7 @@
     </div>
   </section>
 
-  <section class="section" reveal>
+  <section class="section reveal">
     <div class="wrap">
 
       <div class="service-row">
@@ -98,7 +108,7 @@
     </div>
   </section>
 
-  <section class="section tight" style="background:var(--olive-deep); color:var(--cream);" reveal>
+  <section class="section tight reveal" style="background:var(--olive-deep); color:var(--cream);">
     <div class="wrap">
       <span class="eyebrow" style="color:var(--gold);">The Process</span>
       <h2 class="section-title" style="color:var(--cream);">How it works.</h2>
@@ -111,7 +121,7 @@
     </div>
   </section>
 
-  <section class="section tight" style="text-align:center;" reveal>
+  <section class="section tight reveal" style="text-align:center;">
     <div class="wrap">
       <a href="contact.html" class="btn btn-solid">Book a Free Consult</a>
     </div>
@@ -119,9 +129,9 @@
 
 </main>
 
-<footer class="site" reveal>
+<footer class="site">
   <div class="wrap">
-    <div class="foot-badge"><img src="img/logo-full.png" alt="Katrina Paris logo"></div>
+    <div class="foot-badge"><img src="img/logo-full.png" alt="Coaching with Katrina logo"></div>
     <div class="foot-grid">
       <div>
         <div class="foot-logo">Coaching with Katrina</div>
@@ -136,13 +146,13 @@
       </div>
       <div>
         <h4>Connect</h4>
-        <a href="#">@coachingwithkatrinaparis</a>
-        <a href="#">hello@katrinaparis.coach</a>
+        <a href="https://www.instagram.com/coachingwithkatrinaparis/" target="_blank" rel="noopener noreferrer">@coachingwithkatrinaparis</a>
         <a href="contact.html">Book a Discovery Call</a>
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© 2026 Katrina Paris Coaching. All rights reserved.</span>
+      <span>© 2026 Coaching with Katrina. All rights reserved.</span>
+      <span>Site template</span>
     </div>
   </div>
 </footer>

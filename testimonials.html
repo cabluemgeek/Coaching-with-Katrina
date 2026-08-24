@@ -8,14 +8,23 @@
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <title>Testimonials — Coaching with Katrina</title>
 <link rel="stylesheet" href="css/style.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3CLBPL3VN0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3CLBPL3VN0');
+</script>
 </head>
 <body>
 
-<header class="site" reveal>
+<header class="site">
   <div class="nav-wrap">
     <a href="index.html" class="logo">
       <img src="img/logo-full.png" alt="Coaching with Katrina" class="logo-img">
-</a>
+    </a>
     <button class="menu-toggle" id="menuToggle">☰</button>
     <nav class="pages" id="pagesNav">
       <a href="index.html">Home</a>
@@ -31,7 +40,7 @@
 
 <main>
 
-  <section class="page-hero" reveal>
+  <section class="page-hero">
     <div class="wrap">
       <span class="eyebrow">Testimonials</span>
       <h1>What it's like to work together.</h1>
@@ -39,35 +48,35 @@
     </div>
   </section>
 
-  <section class="section" reveal>
+  <section class="section">
     <div class="wrap">
       <div class="tgrid">
-        <div class="tcard cream">
+        <div class="tcard cream reveal" style="transition-delay:0s">
           <span class="mark">"</span>
           <p class="quote">I leave the sessions feeling truly calm, happy, and reassured. I can genuinely see the positive changes in myself with each session.</p>
           <span class="who">— Maïa</span>
         </div>
-        <div class="tcard brown">
+        <div class="tcard brown reveal" style="transition-delay:0.1s">
           <span class="mark">"</span>
           <p class="quote">Katrina really helped me to work on becoming a better version of myself.</p>
           <span class="who">— Sonam</span>
         </div>
-        <div class="tcard olive">
+        <div class="tcard olive reveal" style="transition-delay:0.2s">
           <span class="mark">"</span>
           <p class="quote">Her questions are thought provoking. I especially like it when she gives me suggestions when I don't find the answers.</p>
           <span class="who">— Aswin</span>
         </div>
-        <div class="tcard olive">
+        <div class="tcard olive reveal" style="transition-delay:0s">
           <span class="mark">"</span>
           <p class="quote">Working with Katrina helped me set boundaries I didn't know I was allowed to have.</p>
           <span class="who">— Client, Life Coaching</span>
         </div>
-        <div class="tcard cream">
+        <div class="tcard cream reveal" style="transition-delay:0.1s">
           <span class="mark">"</span>
           <p class="quote">I really enjoy the guided meditation with Katrina. I leave each session feeling lighter and more grounded.</p>
           <span class="who">— Client, Guided Meditation</span>
         </div>
-        <div class="tcard brown">
+        <div class="tcard brown reveal" style="transition-delay:0.2s">
           <span class="mark">"</span>
           <p class="quote">She gives me suggestions when I don't find the answers myself — that's exactly what I needed.</p>
           <span class="who">— Client, Career Coaching</span>
@@ -76,7 +85,16 @@
     </div>
   </section>
 
-  <section class="section tight alt" style="text-align:center;" reveal>
+     <section class="section tight reveal" style="text-align:center;">
+    <div class="wrap">
+      <span class="eyebrow center">Share Your Experience</span>
+      <h2 class="section-title">Leave a testimonial.</h2>
+      <p style="max-width:480px; margin:0 auto 30px;">Worked with Katrina? I'd love to hear about it — approved stories get featured above.</p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdEm_r3STXHW66LMPOTZS6mmHqv2exxuOVVu9z7DL6l9a0SyQ/viewform" target="_blank" rel="noopener" class="btn btn-solid">Leave a Testimonial</a>
+    </div>
+  </section>
+
+   <section class="section tight alt reveal" style="text-align:center;">
     <div class="wrap">
       <h2 class="section-title">Your story could be next.</h2>
       <a href="contact.html" class="btn btn-solid">Start With a Free Consult</a>
@@ -87,10 +105,10 @@
 
 <footer class="site">
   <div class="wrap">
-    <div class="foot-badge"><img src="img/logo-full.png" alt="Katrina Paris logo"></div>
+    <div class="foot-badge"><img src="img/logo-full.png" alt="Coaching with Katrina logo"></div>
     <div class="foot-grid">
       <div>
-        <div class="foot-logo">Katrina Paris</div>
+        <div class="foot-logo">Coaching with Katrina</div>
         <p>Life &amp; career coaching for the moments you feel stuck between who you were and who you're becoming.</p>
       </div>
       <div>
@@ -102,17 +120,19 @@
       </div>
       <div>
         <h4>Connect</h4>
-        <a href="#">@coachingwithkatrinaparis</a>
-        <a href="#">hello@katrinaparis.coach</a>
+        <a href="https://www.instagram.com/coachingwithkatrinaparis/" target="_blank" rel="noopener noreferrer">@coachingwithkatrinaparis</a>
         <a href="contact.html">Book a Discovery Call</a>
       </div>
     </div>
     <div class="foot-bottom">
       <span>© 2026 Coaching with Katrina. All rights reserved.</span>
+      <span>Site template</span>
     </div>
   </div>
 </footer>
-
+<script>
+  loadTestimonials('https://script.google.com/macros/s/AKfycbz_2L2zEpMQkcj1iaxq9In5UDaVfe8D0ArJUwP2MYOCpFsFmcu1ukrY9X67xUJF-0Wo/exec', 'dynamicTestimonials');
+</script>
 <script src="js/main.js"></script>
 </body>
 </html>
