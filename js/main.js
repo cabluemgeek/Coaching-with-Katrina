@@ -40,15 +40,17 @@ function loadTestimonials(scriptUrl, containerId) {
       if (!res.ok) {
         throw new Error('HTTP error ' + res.status);
       }
+
       return res.json();
     })
     .then(function (rows) {
+
       var colors = ['cream', 'brown', 'olive'];
       var shown = 0;
 
       rows.forEach(function (row) {
 
-        // Code.gs already returns ONLY approved testimonials
+        // Code.gs already returns approved testimonials
         var name = row.name || 'Anonymous';
         var text = row.testimonial || '';
 
@@ -58,11 +60,7 @@ function loadTestimonials(scriptUrl, containerId) {
 
         card.className =
           'tcard ' +
-          colors[shown % colors.length] +
-          ' reveal';
-
-        card.style.transitionDelay =
-          ((shown % 3) * 0.1) + 's';
+          colors[shown % colors.length];
 
         card.innerHTML =
           '<span class="mark">"</span>' +
@@ -75,12 +73,9 @@ function loadTestimonials(scriptUrl, containerId) {
 
         container.appendChild(card);
 
-        if (window.observeReveal) {
-          window.observeReveal(card);
-        }
-
         shown++;
       });
+
     })
     .catch(function (err) {
       console.error('Could not load testimonials:', err);

@@ -402,3 +402,115 @@ footer.site{background:var(--brown-deep); color:rgba(245,241,230,0.7); padding:4
   .hero h1{font-size:36px;}
   h2.section-title{font-size:26px;}
 }
+
+/*========================================================================================================================================= */
+/*========================================================================================================================================= */
+/*========================================================================================================================================= */
+
+
+/* =========================================
+   AUTOMATIC TESTIMONIALS PAGE
+   ========================================= */
+
+#dynamicTestimonials {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 30px !important;
+  width: 100% !important;
+  align-items: stretch !important;
+}
+
+/* Every automatically generated testimonial */
+#dynamicTestimonials > * {
+  width: 100% !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+}
+
+/* Testimonial cards */
+#dynamicTestimonials .tcard {
+  width: 100% !important;
+  min-height: 210px !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 30px 24px !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+
+  position: relative !important;
+  overflow: hidden !important;
+
+  border-radius: var(--radius-sm) !important;
+
+  box-shadow: 0 16px 30px -18px rgba(44,39,23,0.25);
+}
+
+/* If JavaScript wraps cards inside another element */
+#dynamicTestimonials > div {
+  width: 100% !important;
+}
+
+/* Colors */
+#dynamicTestimonials .tcard.cream {
+  background: var(--cream);
+  color: var(--ink);
+}
+
+#dynamicTestimonials .tcard.brown {
+  background: var(--brown-deep);
+  color: var(--cream);
+}
+
+#dynamicTestimonials .tcard.olive {
+  background: var(--olive-mid);
+  color: var(--cream);
+}
+
+/* Quote */
+#dynamicTestimonials .tcard .mark {
+  font-family: var(--serif);
+  font-size: 36px;
+  color: var(--gold);
+  line-height: 1;
+}
+
+#dynamicTestimonials .tcard.brown .mark,
+#dynamicTestimonials .tcard.olive .mark {
+  color: rgba(245,241,230,0.55);
+}
+
+/* Text */
+#dynamicTestimonials .tcard p.quote {
+  font-size: 13.5px;
+  margin: 12px 0 16px;
+  line-height: 1.5;
+}
+
+/* Name */
+#dynamicTestimonials .tcard .who {
+  font-size: 12px;
+  opacity: 0.75;
+  font-style: italic;
+  font-family: var(--serif);
+}
+
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 960px) {
+  #dynamicTestimonials {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 24px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  #dynamicTestimonials {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+}
