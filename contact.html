@@ -50,31 +50,37 @@
 
   <section class="section reveal">
     <div class="wrap contact-grid">
-      <form class="contact-form">
-        <div class="field">
-          <label for="name">Full name</label>
-          <input type="text" id="name" placeholder="Your name">
-        </div>
-        <div class="field">
-          <label for="email">Email</label>
-          <input type="email" id="email" placeholder="you@email.com">
-        </div>
-        <div class="field">
-          <label for="interest">I'm interested in</label>
-          <select id="interest">
-            <option>Career Coaching</option>
-            <option>Life Coaching</option>
-            <option>Guided Meditation</option>
-            <option>Workshops &amp; Talks</option>
-            <option>Not sure yet</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="message">Message</label>
-          <textarea id="message" placeholder="Tell me a bit about what's going on..."></textarea>
-        </div>
-        <button type="submit" class="btn btn-solid" style="align-self:flex-start; margin-top:6px;">Send Message</button>
-      </form>
+      <form class="contact-form" action="https://formspree.io/f/mrpzvwdp" method="POST">
+  <div class="field">
+    <label for="name">Full name</label>
+    <input type="text" id="name" name="name" placeholder="Your name" required>
+  </div>
+  <div class="field">
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" placeholder="you@email.com" required>
+  </div>
+  <div class="field">
+    <label for="interest">I'm interested in</label>
+    <select id="interest" name="interest">
+      <option>Career Coaching</option>
+      <option>Life Coaching</option>
+      <option>Guided Meditation</option>
+      <option>Workshops &amp; Talks</option>
+      <option>Not sure yet</option>
+    </select>
+  </div>
+  <div class="field">
+    <label for="message">Message</label>
+    <textarea id="message" name="message" placeholder="Tell me a bit about what's going on..." required></textarea>
+  </div>
+  <input type="text" name="_gotcha" style="display:none">
+  <button type="submit" class="btn btn-solid" id="contactSubmit" style="align-self:flex-start; margin-top:6px;">Send Message</button>
+</form>
+
+<div id="contactSuccess" class="contact-success" style="display:none;">
+  <p><strong>Thank you for your trust.</strong><br>Your message has been sent — you'll be contacted soon.</p>
+</div>
+        
 
       <div class="contact-info">
         <div class="row"><span class="k">Instagram</span><span class="v">@coachingwithkatrinaparis</span></div>
@@ -117,6 +123,37 @@
     </div>
   </div>
 </footer>
+
+<script>
+  document.getElementById('contactForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var form = e.target;
+    var btn = document.getElementById('contactSubmit');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    })
+      .then(function (res) {
+        if (res.ok) {
+          form.style.display = 'none';
+          document.getElementById('contactSuccess').style.display = 'block';
+        } else {
+          btn.textContent = 'Send Message';
+          btn.disabled = false;
+          alert('Something went wrong — please try again or email hello@katrinaparis.coach directly.');
+        }
+      })
+      .catch(function () {
+        btn.textContent = 'Send Message';
+        btn.disabled = false;
+        alert('Something went wrong — please try again or email hello@katrinaparis.coach directly.');
+      });
+  });
+</script>
 
 <script src="js/main.js"></script>
 </body>

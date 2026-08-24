@@ -290,6 +290,12 @@ form.contact-form{display:flex; flex-direction:column; gap:16px;}
   background:var(--cream-2); border:1px solid var(--line); padding:13px 14px; font-family:var(--sans); font-size:14px; color:var(--ink);
 }
 .field textarea{min-height:110px; resize:vertical;}
+.contact-success{
+  background:var(--cream-2); border:1px solid var(--line); padding:32px 30px;
+  text-align:center;
+}
+.contact-success strong{font-family:var(--serif); color:var(--brown-deep); font-size:17px;}
+.contact-success p{font-size:14.5px; line-height:1.7;}
 .field input:focus, .field select:focus, .field textarea:focus{outline:2px solid var(--gold); outline-offset:1px;}
 .contact-info .row{display:flex; gap:16px; padding:15px 0; border-bottom:1px solid var(--line);}
 .contact-info .k{font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold); width:100px; flex-shrink:0;}
