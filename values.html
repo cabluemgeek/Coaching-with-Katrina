@@ -25,6 +25,11 @@
     <a href="index.html" class="logo">
       <img src="img/logo-full.png" alt="Coaching with Katrina" class="logo-img">
     </a>
+
+
+
+
+
     <button class="menu-toggle" id="menuToggle">☰</button>
     <nav class="pages" id="pagesNav">
       <a href="index.html">Home</a>
@@ -35,6 +40,13 @@
       <a href="contact.html">Contact</a>
       <a href="contact.html" class="btn btn-olive nav-cta">Book a Session</a>
     </nav>
+
+    <div class="lang-toggle" id="lang-toggle">
+    <button type="button" data-lang="en" class="active">EN</button>
+    <button type="button" data-lang="fr">FR</button>
+  </div>
+
+
   </div>
 </header>
 
@@ -142,5 +154,18 @@
 </footer>
 
 <script src="js/main.js"></script>
+
+<div id="google_translate_element" style="display:none;"></div>
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement(
+      { pageLanguage: 'en', includedLanguages: 'fr', autoDisplay: false },
+      'google_translate_element'
+    );
+  }
+</script>
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
 </body>
 </html>

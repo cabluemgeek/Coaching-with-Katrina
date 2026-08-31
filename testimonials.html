@@ -36,6 +36,13 @@
       <a href="contact.html">Contact</a>
       <a href="contact.html" class="btn btn-olive nav-cta">Book a Session</a>
     </nav>
+
+    <div class="lang-toggle" id="lang-toggle">
+    <button type="button" data-lang="en" class="active">EN</button>
+    <button type="button" data-lang="fr">FR</button>
+  </div>
+
+
   </div>
 </header>
 
@@ -118,5 +125,18 @@
 <script>
   loadTestimonials('https://script.google.com/macros/s/AKfycbx4HM6oWIOqcyUyjQPy7oRQ_r6XmSqE0WP77UkFM9_8IPY07B00j-lYJa7OcTgtRZb6/exec', 'dynamicTestimonials');
 </script>
+
+<div id="google_translate_element" style="display:none;"></div>
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement(
+      { pageLanguage: 'en', includedLanguages: 'fr', autoDisplay: false },
+      'google_translate_element'
+    );
+  }
+</script>
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
 </body>
 </html>
