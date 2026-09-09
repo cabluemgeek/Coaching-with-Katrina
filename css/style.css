@@ -217,9 +217,9 @@ nav.pages a.active{opacity:1; border-color:var(--gold); color:var(--brown-deep);
 .help-card p{color:rgba(245,241,230,0.85); font-size:13.5px; margin-bottom:16px; max-width:260px;}
 .help-card .link-arrow{color:var(--cream); border-color:rgba(245,241,230,0.5);}
 
-.help-card.life{background-image:url('../img/life-coaching.png');}
-.help-card.career{background-image:url('../img/career-coaching.png');}
-.help-card.growth{background-image:url('../img/personal-growth.png');}
+.help-card.life{background-image:url('../img/life_coaching.jpg');}
+.help-card.career{background-image:url('../img/corporate_coaching.jpg');}
+.help-card.growth{background-image:url('../img/meditation.jpg');}
 
 @media(max-width:960px){
   .help-card:nth-child(1),
