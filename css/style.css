@@ -133,7 +133,7 @@ nav.pages a.active{opacity:1; border-color:var(--gold); color:var(--brown-deep);
   position:absolute; top:14px; left:14px; z-index:2; background:rgba(44,39,23,0.55); color:var(--cream);
   font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase; padding:6px 11px;
 }
-.ph::before{content:'Photo'; position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+.ph::before{content:none; position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
   color:rgba(255,255,255,0.55); font-family:var(--sans); font-size:11px; letter-spacing:0.2em; text-transform:uppercase; z-index:0;}
 .ph-forest{background:linear-gradient(160deg,#5c6b45,#38401f);}
 .ph-arch{background:linear-gradient(160deg,#8a7e63,#4a3f2c);}
