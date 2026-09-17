@@ -269,12 +269,19 @@ nav.pages a.active{opacity:1; border-color:var(--gold); color:var(--brown-deep);
 .bpost .ph{aspect-ratio:16/11; margin-bottom:16px; border-radius:var(--radius-md);}
 .bpost .cat{font-size:10.5px; letter-spacing:0.16em; text-transform:uppercase; color:var(--gold); margin-bottom:8px; display:block;}
 .bpost h3{font-size:17px; margin-bottom:10px;}
-.bpost .ph-mindset{background-image:url('../img/mindset.png'); background-position:center; background-size:contain; background-repeat:no-repeat; background-color:var(--cream-2);}
+.bpost .ph-mindset{background-image:url('../img/values.jpg'); background-position:center; background-size:cover; background-repeat:no-repeat; background-color:var(--cream-2);}
 .bpost .ph-mindset::before{content:none;}
-.bpost .ph-career{background-image:url('../img/career-blog.png'); background-position:center; background-size:contain; background-repeat:no-repeat; background-color:var(--cream-2);}
+.bpost .ph-career{background-image:url('../img/Personal Growth.png'); background-position:center; background-size:cover; background-repeat:no-repeat; background-color:var(--cream-2);}
 .bpost .ph-career::before{content:none;}
-.bpost .ph-beach{background-image:url('../img/boundaries.png'); background-position:center; background-size:contain; background-repeat:no-repeat; background-color:var(--cream-2);}
+.bpost .ph-beach{background-image:url('../img/Betrayal.jpg'); background-position:center; background-size:cover; background-repeat:no-repeat; background-color:var(--cream-2);}
 .bpost .ph-beach::before{content:none;}
+.bpost .ph-forest{background-image:url('../img/grief-and-identity.jpg'); background-position:center; background-size:cover; background-repeat:no-repeat; background-color:var(--cream-2);}
+.bpost .ph-forest::before{content:none;}
+.bpost .ph-vase{background-image:url('../img/when-love-isnt-the-missing-piece.jpg'); background-position:center; background-size:cover; background-repeat:no-repeat;}
+.bpost .ph-vase::before{content:none;}
+.bpost .ph-leaf{background-image:url('../img/outburst-vs-thoughtful-response.jpg'); background-position:center; background-size:cover; background-repeat:no-repeat; background-color:var(--cream-2);}
+.bpost .ph-leaf::before{content:none;}
+
 
 /* ---------- Blog article (single post) ---------- */
 .article{max-width:720px; margin:0 auto;}
