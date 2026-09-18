@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<title>The Pause Room - Coaching with Katrina</title>
+<link rel="stylesheet" href="css/style.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3CLBPL3VN0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-3CLBPL3VN0');
+</script>
+
+<style>
+  /* ---------- Practice accordion (built off .service-row) ---------- */
+  .practice-list{ display:flex; flex-direction:column; }
+  .practice-row{ border-bottom:1px solid var(--line); }
+  .practice-row:first-child{ border-top:1px solid var(--line); }
+
+  .practice-toggle{
+    width:100%; display:grid; grid-template-columns:1fr 1.4fr auto;
+    align-items:center; gap:24px; padding:38px 0;
+    background:none; border:none; cursor:pointer; text-align:left;
+    font-family:inherit; color:inherit;
+  }
+  .practice-toggle .eyebrow{ margin-bottom:8px; }
+  .practice-toggle h3{ font-size:20px; }
+  .practice-toggle p{ font-size:14px; color:var(--ink-soft); line-height:1.55; margin:0; }
+  .practice-toggle i{
+    font-size:14px; color:var(--gold); transition:transform .3s ease; flex-shrink:0;
+  }
+  .practice-row.open .practice-toggle i{ transform:rotate(180deg); }
+
+  .practice-panel{
+    max-height:0; overflow:hidden;
+    transition:max-height .45s ease, padding .45s ease, opacity .3s ease;
+    opacity:0;
+  }
+  .practice-row.open .practice-panel{ opacity:1; padding-bottom:56px; }
+
+  @media(max-width:760px){
+    .practice-toggle{ grid-template-columns:1fr auto; }
+    .practice-toggle p{ grid-column:1 / -1; margin-top:6px; }
+  }
+
+  /* ---------- Breathing practice ---------- */
+  .breath-stage{
+    max-width:420px; margin:20px auto 0; display:flex; flex-direction:column;
+    align-items:center; gap:28px;
+  }
+  .breath-ring{
+    position:relative; width:230px; height:230px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .breath-progress{ position:absolute; inset:0; width:100%; height:100%; transform:rotate(-90deg); }
+  .breath-progress .track{ fill:none; stroke:var(--line); stroke-width:4; }
+  .breath-progress .progress{
+    fill:none; stroke:var(--gold); stroke-width:4; stroke-linecap:round;
+    stroke-dasharray:578; stroke-dashoffset:578;
+  }
+  .breath-circle{
+    width:135px; height:135px; border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, var(--olive-mid), var(--olive-deep));
+    display:flex; align-items:center; justify-content:center;
+    color:var(--cream); font-family:var(--serif); font-size:16px;
+    letter-spacing:0.04em; text-align:center;
+    box-shadow:0 22px 40px -18px rgba(44,39,23,0.35);
+    transform:scale(0.85); transition:transform 0.4s ease;
+  }
+  .breath-meta{
+    font-size:12.5px; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--olive-mid); font-weight:500;
+  }
+  .breath-controls{ display:flex; gap:12px; }
+  .breath-hint{ font-size:13px; color:var(--ink-soft); opacity:0.75; max-width:320px; text-align:center; margin:0; }
+  .breath-select{ display:flex; gap:8px; flex-wrap:wrap; justify-content:center; }
+  .breath-select button{
+    font-family:var(--sans); font-size:11px; letter-spacing:0.08em;
+    text-transform:uppercase; padding:9px 16px; border-radius:100px;
+    border:1px solid var(--line); background:var(--cream-2);
+    color:var(--ink-soft); cursor:pointer; transition:all .2s ease;
+  }
+  .breath-select button.active{ background:var(--brown-deep); color:var(--cream); border-color:var(--brown-deep); }
+
+  /* ---------- Clarity cards ---------- */
+  .clarity-stage{
+    max-width:420px; margin:20px auto 0; display:flex; flex-direction:column;
+    align-items:center; gap:26px;
+  }
+  .clarity-card{
+    width:100%; max-width:320px; min-height:190px; perspective:1200px;
+  }
+  .clarity-card-inner{
+    background:var(--cream-2); border:1px solid var(--line);
+    border-radius:var(--radius-md); padding:34px 28px; min-height:190px;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; gap:14px;
+    box-shadow:0 18px 34px -20px rgba(44,39,23,0.28);
+    transition:transform .25s ease, opacity .25s ease;
+  }
+  .clarity-card-inner.flipping{ transform:rotateY(90deg); opacity:0.4; }
+  .clarity-mark{ font-family:var(--serif); font-size:30px; color:var(--gold); line-height:1; }
+  .clarity-question{
+    font-family:var(--serif); font-size:18px; color:var(--brown-deep);
+    line-height:1.5; font-style:italic;
+  }
+  .clarity-controls{ display:flex; gap:12px; }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="nav-wrap">
+    <a href="index.html" class="logo">
+      <img src="img/logo-full.png" alt="Coaching with Katrina" class="logo-img">
+    </a>
+    <button class="menu-toggle" id="menuToggle">☰</button>
+    <nav class="pages" id="pagesNav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <div class="nav-dropdown">
+        <a href="services.html" class="dropdown-toggle">
+          Services <i class="fa-solid fa-chevron-down"></i>
+        </a>
+        <div class="dropdown-menu">
+          <a href="Life-Coaching-details.html">Life Coaching</a>
+          <a href="Corporate-Coaching-details.html">Corporate Coaching</a>
+          <a href="Meditation-details.html">Guided meditation & Breath Work</a>
+        </div>
+      </div>
+      <a href="testimonials.html">Testimonials</a>
+      <a href="blog.html">Blog</a>
+      <a href="Pause-Room.html">Pause Room</a>
+      <a href="contact.html" class="btn btn-olive nav-cta">Book a Session</a>
+    </nav>
+
+    <div class="lang-toggle" id="lang-toggle">
+      <button type="button" data-lang="en" class="active">EN</button>
+      <button type="button" data-lang="fr">FR</button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow">A Moment for You</span>
+      <h1>The Pause Room.</h1>
+      <p>Two small practices for the moments you need to slow down before you speak, decide, or move on. Open one and stay as long as you like.</p>
+    </div>
+  </section>
+
+  <section class="section reveal">
+    <div class="wrap">
+      <div class="practice-list">
+
+        <!-- ===== Breathing Space ===== -->
+        <div class="practice-row" data-practice="breathing">
+          <button class="practice-toggle" aria-expanded="false">
+            <div>
+              <span class="eyebrow left">01 - Breathwork</span>
+              <h3>Breathing Space</h3>
+            </div>
+            <p>A one-minute box-breathing pause. Inhale, hold, exhale, hold - follow the circle.</p>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+
+          <div class="practice-panel">
+            <div class="breath-stage">
+
+              <div class="breath-select">
+                <button type="button" data-cycles="4" class="active">4 cycles</button>
+                <button type="button" data-cycles="6">6 cycles</button>
+                <button type="button" data-cycles="0">Free practice</button>
+              </div>
+
+              <div class="breath-ring">
+                <svg viewBox="0 0 200 200" class="breath-progress">
+                  <circle cx="100" cy="100" r="92" class="track"></circle>
+                  <circle cx="100" cy="100" r="92" class="progress" id="breathProgress"></circle>
+                </svg>
+                <div class="breath-circle" id="breathCircle">
+                  <span id="breathLabel">Ready</span>
+                </div>
+              </div>
+
+              <div class="breath-meta" id="breathCount">0 of 4 cycles</div>
+
+              <div class="breath-controls">
+                <button class="btn btn-solid" id="breathToggle">Begin</button>
+                <button class="btn btn-outline" id="breathReset">Reset</button>
+              </div>
+
+              <p class="breath-hint">Best with a quiet moment - sound on, or in silence, whichever settles you.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== Clarity Cards ===== -->
+        <div class="practice-row" data-practice="clarity">
+          <button class="practice-toggle" aria-expanded="false">
+            <div>
+              <span class="eyebrow left">02 - Reflection</span>
+              <h3>Clarity Cards</h3>
+            </div>
+            <p>Draw a card, sit with the question. Draw another whenever you're ready for the next one.</p>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+
+          <div class="practice-panel">
+            <div class="clarity-stage">
+              <div class="clarity-card">
+                <div class="clarity-card-inner" id="clarityCardInner">
+                  <span class="clarity-mark">✦</span>
+                  <p class="clarity-question" id="clarityQuestion">Draw a card to begin.</p>
+                </div>
+              </div>
+              <div class="clarity-controls">
+                <button class="btn btn-solid" id="clarityDraw">Draw a Card</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section tight alt reveal" style="text-align:center;">
+    <div class="wrap">
+      <span class="eyebrow center">Want to go deeper?</span>
+      <h2 class="section-title">These are a taste of what we build together.</h2>
+      <p style="max-width:480px; margin:0 auto 30px;">In session, we turn moments like these into lasting tools.</p>
+      <a href="contact.html" class="btn btn-solid">Book a Session</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-badge"><img src="img/logo-full.png" alt="Coaching with Katrina logo"></div>
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">Coaching with Katrina</div>
+        <p>Life &amp; career coaching for the moments you feel stuck between who you were and who you're becoming.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="Life-Coaching-details.html">Life Coaching</a>
+        <a href="Corporate-Coaching-details.html">Corporate Coaching</a>
+        <a href="Meditation-details.html">Guided meditation & Breath Work</a>
+        <a href="blog.html">Blog</a>
+        <a href="testimonials.html">Testimonials</a>
+                <a href="Pause-Room.html">Pause Room</a>
+
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <a href="https://www.instagram.com/coachingwithkatrinaparis/" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-instagram"></i>
+          Instagram
+        </a>
+        <a href="https://www.linkedin.com/in/katrina-neal-hamel-459812145/" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-linkedin-in"></i>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Coaching with Katrina. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+
+<script>
+(function(){
+  /* ---------- Accordion ---------- */
+  var rows = document.querySelectorAll('.practice-row');
+  rows.forEach(function(row){
+    var toggle = row.querySelector('.practice-toggle');
+    var panel = row.querySelector('.practice-panel');
+
+    toggle.addEventListener('click', function(){
+      var isOpen = row.classList.contains('open');
+
+      if (isOpen) {
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+        requestAnimationFrame(function(){
+          panel.style.maxHeight = '0px';
+        });
+        row.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      } else {
+        row.classList.add('open');
+        toggle.setAttribute('aria-expanded', 'true');
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+      }
+    });
+  });
+
+  // Keep open panels correctly sized if content changes height
+  window.addEventListener('resize', function(){
+    document.querySelectorAll('.practice-row.open .practice-panel').forEach(function(panel){
+      panel.style.maxHeight = panel.scrollHeight + 'px';
+    });
+  });
+
+  /* ---------- Breathing Space ---------- */
+  var circle    = document.getElementById('breathCircle');
+  var label     = document.getElementById('breathLabel');
+  var progress  = document.getElementById('breathProgress');
+  var countEl   = document.getElementById('breathCount');
+  var toggleBtn = document.getElementById('breathToggle');
+  var resetBtn  = document.getElementById('breathReset');
+  var cycleButtons = document.querySelectorAll('.breath-select button');
+  var breathPanel = document.querySelector('[data-practice="breathing"] .practice-panel');
+
+  var phases = [
+    { name: 'Inhale', duration: 4000, scale: 1.3 },
+    { name: 'Hold',   duration: 4000, scale: 1.3 },
+    { name: 'Exhale', duration: 4000, scale: 0.85 },
+    { name: 'Hold',   duration: 4000, scale: 0.85 }
+  ];
+
+  var CIRCUMFERENCE = 578;
+  var phaseIndex = 0;
+  var cycles = 0;
+  var targetCycles = 4;
+  var running = false;
+  var timeoutId = null;
+
+  function resyncPanelHeight(){
+    if (breathPanel && breathPanel.parentElement.classList.contains('open')) {
+      breathPanel.style.maxHeight = breathPanel.scrollHeight + 'px';
+    }
+  }
+
+  function updateCountLabel(){
+    if (targetCycles === 0) {
+      countEl.textContent = cycles + (cycles === 1 ? ' cycle completed' : ' cycles completed');
+    } else {
+      countEl.textContent = cycles + ' of ' + targetCycles + ' cycles';
+    }
+  }
+
+  function setPhase(i){
+    var phase = phases[i];
+    label.textContent = phase.name;
+
+    circle.style.transition = 'transform ' + (phase.duration / 1000) + 's ease-in-out';
+    circle.style.transform = 'scale(' + phase.scale + ')';
+
+    progress.style.transition = 'none';
+    progress.style.strokeDashoffset = CIRCUMFERENCE;
+    progress.getBoundingClientRect(); // force reflow
+    progress.style.transition = 'stroke-dashoffset ' + (phase.duration / 1000) + 's linear';
+    progress.style.strokeDashoffset = 0;
+  }
+
+  function finish(){
+    running = false;
+    toggleBtn.textContent = 'Begin';
+    label.textContent = 'Well done';
+    circle.style.transition = 'transform 0.6s ease';
+    circle.style.transform = 'scale(0.85)';
+    progress.style.transition = 'stroke-dashoffset 0.6s ease';
+    progress.style.strokeDashoffset = CIRCUMFERENCE;
+  }
+
+  function nextPhase(){
+    if (!running) return;
+    setPhase(phaseIndex);
+    var currentDuration = phases[phaseIndex].duration;
+
+    timeoutId = setTimeout(function(){
+      phaseIndex = (phaseIndex + 1) % phases.length;
+
+      if (phaseIndex === 0) {
+        cycles++;
+        updateCountLabel();
+        if (targetCycles !== 0 && cycles >= targetCycles) {
+          finish();
+          return;
+        }
+      }
+      nextPhase();
+    }, currentDuration);
+  }
+
+  function start(){
+    running = true;
+    toggleBtn.textContent = 'Pause';
+    nextPhase();
+  }
+
+  function pauseBreath(){
+    running = false;
+    toggleBtn.textContent = 'Resume';
+    clearTimeout(timeoutId);
+    circle.style.transition = 'transform 0.4s ease';
+    progress.style.transition = 'stroke-dashoffset 0.4s ease';
+  }
+
+  function resetBreath(){
+    pauseBreath();
+    phaseIndex = 0;
+    cycles = 0;
+    updateCountLabel();
+    label.textContent = 'Ready';
+    circle.style.transform = 'scale(0.85)';
+    progress.style.strokeDashoffset = CIRCUMFERENCE;
+    toggleBtn.textContent = 'Begin';
+  }
+
+  toggleBtn.addEventListener('click', function(){
+    if (running) { pauseBreath(); } else { start(); }
+  });
+
+  resetBtn.addEventListener('click', resetBreath);
+
+  cycleButtons.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      cycleButtons.forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      targetCycles = parseInt(btn.getAttribute('data-cycles'), 10);
+      resetBreath();
+    });
+  });
+
+  progress.style.strokeDasharray = CIRCUMFERENCE;
+  progress.style.strokeDashoffset = CIRCUMFERENCE;
+  updateCountLabel();
+
+  /* ---------- Clarity Cards ---------- */
+  var clarityInner = document.getElementById('clarityCardInner');
+  var clarityQuestion = document.getElementById('clarityQuestion');
+  var clarityDrawBtn = document.getElementById('clarityDraw');
+  var clarityPanel = document.querySelector('[data-practice="clarity"] .practice-panel');
+
+  var prompts = [
+    "What are you tolerating right now that you don't have to?",
+    "What would you do differently today if no one was watching?",
+    "What is one truth you've been avoiding saying out loud?",
+    "Where in your life are you performing instead of being?",
+    "What would 'enough' actually look like for you?",
+    "What are you afraid people will discover if you slow down?",
+    "What version of yourself are you still grieving?",
+    "What boundary have you been meaning to set?",
+    "Who do you become when no one needs anything from you?",
+    "What would you let go of if you knew it was safe to?",
+    "What conversation have you been postponing?",
+    "What does your body already know that your mind hasn't caught up to?",
+    "What are you proving, and to whom?",
+    "If this season had a name, what would you call it?",
+    "What would change if you trusted yourself more?",
+    "What's one thing you're doing out of habit rather than choice?",
+    "What would you say if you weren't worried about being too much?",
+    "Where are you moving fast to avoid feeling something?",
+    "What does peace actually feel like in your body?",
+    "What's the story you keep telling about yourself that's no longer true?",
+    "What are you waiting for permission to do?",
+    "What would it look like to choose yourself today?",
+    "What's one thing you know for certain, even when everything else feels uncertain?",
+    "What are you ready to stop carrying?",
+    "What would you attempt if you weren't afraid of doing it imperfectly?",
+"Who are you when you're not trying to be understood?",
+"What have you outgrown but haven't let go of yet?",
+"What are you saying yes to that you actually mean no to?",
+"What would it feel like to stop explaining yourself?",
+"What part of your day feels the most like you?",
+"What are you protecting by staying busy?",
+"What would you forgive yourself for if you could?",
+"What's the quietest, truest thing you know about yourself right now?",
+"What are you still doing for people who wouldn't do it for you?",
+"What would it mean to trust the timing of your own life?",
+"What are you calling 'fine' that isn't?",
+"What would you build if failure wasn't a risk?",
+"Where do you feel most like a version of yourself you actually like?",
+"What are you rushing toward that you haven't questioned?",
+"What would you tell the version of you from five years ago?",
+"What are you holding onto because letting go feels like losing?",
+"What does your inner voice sound like when you're not performing?",
+"What would change if you stopped needing to have it all figured out?",
+"What's one expectation you're living by that was never actually yours?",
+"What are you avoiding by staying comfortable?",
+"What would it look like to rest without guilt?",
+"What have you been needing to hear that no one has said to you?",
+"What are you ready to be honest about, even if just to yourself?",
+"What would your life look like if you believed you were already enough?"
+  ];
+
+  var lastIndex = -1;
+
+  function nextPrompt(){
+    if (prompts.length <= 1) return prompts[0];
+    var idx;
+    do {
+      idx = Math.floor(Math.random() * prompts.length);
+    } while (idx === lastIndex);
+    lastIndex = idx;
+    return prompts[idx];
+  }
+
+  function drawCard(){
+    clarityInner.classList.add('flipping');
+    setTimeout(function(){
+      clarityQuestion.textContent = nextPrompt();
+      clarityInner.classList.remove('flipping');
+      resyncClarityHeight();
+    }, 220);
+  }
+
+  function resyncClarityHeight(){
+    if (clarityPanel && clarityPanel.parentElement.classList.contains('open')) {
+      clarityPanel.style.maxHeight = clarityPanel.scrollHeight + 'px';
+    }
+  }
+
+  clarityDrawBtn.addEventListener('click', drawCard);
+})();
+</script>
+
+<div id="google_translate_element" style="display:none;"></div>
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement(
+      { pageLanguage: 'en', includedLanguages: 'fr', autoDisplay: false },
+      'google_translate_element'
+    );
+  }
+</script>
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+</html>

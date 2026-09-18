@@ -24,6 +24,17 @@ document.addEventListener('DOMContentLoaded', function () {
     revealObserver.observe(el);
   };
 
+  // ---------- Mobile Services dropdown (tap to expand) ----------
+  var dropdownToggles = document.querySelectorAll('.nav-dropdown > .dropdown-toggle');
+  dropdownToggles.forEach(function (toggle) {
+    toggle.addEventListener('click', function (e) {
+      if (window.innerWidth <= 960) {
+        e.preventDefault(); // stop it from navigating to services.html on mobile
+        var parent = toggle.closest('.nav-dropdown');
+        parent.classList.toggle('open');
+      }
+    });
+  });
   // ---------- Language toggle via Google Translate widget ----------
   var STORAGE_KEY = 'siteLang';
   var langToggle = document.getElementById('lang-toggle');
