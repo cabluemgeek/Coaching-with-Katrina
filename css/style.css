@@ -277,7 +277,7 @@ nav.pages a.active{opacity:1; border-color:var(--gold); color:var(--brown-deep);
 .bpost .ph-beach::before{content:none;}
 .bpost .ph-forest{background-image:url('../img/grief-and-identity.jpg'); background-position:center; background-size:cover; background-repeat:no-repeat; background-color:var(--cream-2);}
 .bpost .ph-forest::before{content:none;}
-.bpost .ph-vase{background-image:url('../img/when-love-isnt-the-missing-piece.jpg'); background-position:center; background-size:cover; background-repeat:no-repeat;}
+.bpost .ph-vase{background-image:url('../img/external-distraction.jpg'); background-position:center; background-size:cover; background-repeat:no-repeat;}
 .bpost .ph-vase::before{content:none;}
 .bpost .ph-leaf{background-image:url('../img/outburst-vs-thoughtful-response.jpg'); background-position:center; background-size:cover; background-repeat:no-repeat; background-color:var(--cream-2);}
 .bpost .ph-leaf::before{content:none;}
