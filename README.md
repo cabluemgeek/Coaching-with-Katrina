@@ -1,6 +1,6 @@
 # Coaching with Katrina
 
-A modern, responsive website designed and developed for **Katrina**, a Life and Career Coach.
+A modern, responsive website designed and developed for **Katrina**,my beloved teacher, a Life and Career Coach.
 
 The website presents Katrina's coaching philosophy, services, experience, values, testimonials, and resources, while providing visitors with a clear and welcoming way to learn more and get in touch.
 
