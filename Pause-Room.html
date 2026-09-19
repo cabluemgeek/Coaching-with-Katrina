@@ -112,6 +112,28 @@
     line-height:1.5; font-style:italic;
   }
   .clarity-controls{ display:flex; gap:12px; }
+
+  /* ---------- Letting Go List ---------- */
+  .letting-go-stage{
+    max-width:420px; margin:20px auto 0; display:flex; flex-direction:column;
+    align-items:center; gap:20px;
+  }
+  .letting-go-input{
+    width:100%; padding:13px 16px; border-radius:14px;
+    border:1px solid var(--line); background:var(--cream-2);
+    font-family:var(--sans); font-size:14px; color:var(--ink);
+  }
+  .letting-go-input:focus{ outline:2px solid var(--gold); outline-offset:1px; }
+  .letting-go-word{
+    min-height:32px; display:flex; align-items:center; justify-content:center;
+    font-family:var(--serif); font-style:italic; font-size:17px; color:var(--brown-deep);
+    opacity:0; transform:translateY(6px);
+    transition:opacity 2.2s ease, transform 2.2s ease;
+    text-align:center; padding:0 12px;
+  }
+  .letting-go-word.showing{ opacity:0.9; transform:translateY(0); }
+  .letting-go-word.releasing{ opacity:0; transform:translateY(-14px); }
+  .letting-go-note{ font-size:12.5px; color:var(--ink-soft); opacity:0.75; text-align:center; margin:0; max-width:320px; }
 </style>
 </head>
 <body>
@@ -132,7 +154,7 @@
         <div class="dropdown-menu">
           <a href="Life-Coaching-details.html">Life Coaching</a>
           <a href="Corporate-Coaching-details.html">Corporate Coaching</a>
-          <a href="Meditation-details.html">Guided meditation & Breath Work</a>
+          <a href="Meditation-details.html">Meditation & Breath Work</a>
         </div>
       </div>
       <a href="testimonials.html">Testimonials</a>
@@ -141,7 +163,6 @@
       <a href="contact.html" class="btn btn-olive nav-cta">Book a Session</a>
     </nav>
 
-    
   </div>
 </header>
 
@@ -151,7 +172,7 @@
     <div class="wrap">
       <span class="eyebrow">A Moment for You</span>
       <h1>The Pause Room.</h1>
-      <p>Two small practices for the moments you need to slow down before you speak, decide, or move on. Open one and stay as long as you like.</p>
+      <p>Three small practices for the moments you need to slow down before you speak, decide, or move on. Open one and stay as long as you like.</p>
     </div>
   </section>
 
@@ -227,6 +248,33 @@
           </div>
         </div>
 
+        <!-- ===== The Letting Go List ===== -->
+        <div class="practice-row" data-practice="letting-go">
+          <button class="practice-toggle" aria-expanded="false">
+            <div>
+              <span class="eyebrow left">03 - Release</span>
+              <h3>The Letting Go List</h3>
+            </div>
+            <p>Type what you're ready to release. Nothing is saved, sent, or analysed - it's just yours to let go of.</p>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+
+          <div class="practice-panel">
+            <div class="letting-go-stage">
+              <input
+                type="text"
+                id="lettingGoInput"
+                class="letting-go-input"
+                placeholder="What are you ready to let go of?"
+                maxlength="80"
+              >
+              <button class="btn btn-solid" id="lettingGoRelease">Release It</button>
+              <p class="letting-go-word" id="lettingGoWord"></p>
+              <p class="letting-go-note">This stays on your screen only - nothing is stored or sent anywhere.</p>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -256,11 +304,10 @@
         <a href="services.html">Services</a>
         <a href="Life-Coaching-details.html">Life Coaching</a>
         <a href="Corporate-Coaching-details.html">Corporate Coaching</a>
-        <a href="Meditation-details.html">Guided meditation & Breath Work</a>
+        <a href="Meditation-details.html">Meditation & Breath Work</a>
         <a href="blog.html">Blog</a>
         <a href="testimonials.html">Testimonials</a>
-                <a href="Pause-Room.html">Pause Room</a>
-
+        <a href="Pause-Room.html">Pause Room</a>
       </div>
       <div>
         <h4>Connect</h4>
@@ -527,6 +574,57 @@
   }
 
   clarityDrawBtn.addEventListener('click', drawCard);
+
+  /* ---------- The Letting Go List ---------- */
+  var lettingGoInput = document.getElementById('lettingGoInput');
+  var lettingGoBtn = document.getElementById('lettingGoRelease');
+  var lettingGoWord = document.getElementById('lettingGoWord');
+  var lettingGoPanel = document.querySelector('[data-practice="letting-go"] .practice-panel');
+  var lettingGoTimeout = null;
+
+  function resyncLettingGoHeight(){
+    if (lettingGoPanel && lettingGoPanel.parentElement.classList.contains('open')) {
+      lettingGoPanel.style.maxHeight = lettingGoPanel.scrollHeight + 'px';
+    }
+  }
+
+  function releaseWord(){
+    var value = lettingGoInput.value.trim();
+    if (!value) {
+      lettingGoInput.focus();
+      return;
+    }
+
+    clearTimeout(lettingGoTimeout);
+    lettingGoWord.classList.remove('releasing');
+    lettingGoWord.textContent = value;
+    lettingGoInput.value = '';
+
+    // Force reflow so the "showing" transition reliably re-triggers
+    // even if a previous word is still mid-fade.
+    void lettingGoWord.offsetWidth;
+    lettingGoWord.classList.add('showing');
+    resyncLettingGoHeight();
+
+    lettingGoTimeout = setTimeout(function(){
+      lettingGoWord.classList.add('releasing');
+      resyncLettingGoHeight();
+
+      setTimeout(function(){
+        lettingGoWord.classList.remove('showing', 'releasing');
+        lettingGoWord.textContent = '';
+        resyncLettingGoHeight();
+      }, 2200);
+    }, 1800);
+  }
+
+  lettingGoBtn.addEventListener('click', releaseWord);
+  lettingGoInput.addEventListener('keydown', function(e){
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      releaseWord();
+    }
+  });
 })();
 </script>
 
