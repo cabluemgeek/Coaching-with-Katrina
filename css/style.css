@@ -252,7 +252,7 @@ nav.pages a.active{opacity:1; border-color:var(--gold); color:var(--brown-deep);
 /* ---------- Testimonials (Kind Words) ---------- */
 .kind{padding:65px 0; background:var(--cream-2); margin:35px auto;}
 .kind .head{text-align:center; margin-bottom:32px;}
-.tgrid{display:grid; grid-template-columns:repeat(3,1fr); gap:30px; align-items:stretch;}
+.tgrid{display:grid; grid-template-columns:repeat(4,1fr); gap:30px; align-items:stretch;}
 .tcard{border-radius:var(--radius-sm); padding:30px 24px; min-height:210px; display:flex; flex-direction:column; justify-content:space-between; position:relative; overflow:hidden; box-shadow:0 16px 30px -18px rgba(44,39,23,0.25);}
 .tcard::after{content:''; position:absolute; inset:0; opacity:0.28; z-index:0;}
 .tcard > *{position:relative; z-index:1;}
