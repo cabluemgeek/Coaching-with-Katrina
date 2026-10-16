@@ -9,6 +9,32 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <title>Corporate Coaching - Coaching with Katrina</title>
 <link rel="stylesheet" href="css/style.css">
+
+<!-- Styles for this page's new content (you can move this block into css/style.css later) -->
+<style>
+.bullets{display:flex; flex-direction:column; gap:7px; margin:12px 0 16px;}
+.bullets li{font-size:14px; line-height:1.5; padding-left:20px; position:relative;}
+.bullets li::before{content:'•'; position:absolute; left:0; top:50%; transform:translateY(-50%); color:var(--gold); font-size:22px; line-height:1; font-weight:900;}
+.bullets.cols{display:block; columns:2 260px; column-gap:40px;}
+.bullets.cols li{margin-bottom:8px; break-inside:avoid;}
+
+.card-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr)); gap:26px; margin-top:28px;}
+.card-grid.two{grid-template-columns:repeat(2,minmax(0,1fr));}
+@media(max-width:760px){.card-grid.two{grid-template-columns:1fr;}}
+.info-card{background:var(--cream); border:1px solid var(--line); border-radius:var(--radius-sm); padding:28px 26px; display:flex; flex-direction:column;}
+.info-card h3{font-size:19px; margin-bottom:10px;}
+.info-card h4{font-size:12px; letter-spacing:0.14em; text-transform:uppercase; font-family:var(--sans); color:var(--gold); margin:14px 0 4px;}
+.info-card p{font-size:14px; margin-bottom:10px;}
+.info-card .fmt{font-style:italic; font-family:var(--serif); color:var(--brown-deep);}
+.info-card .plus{font-weight:500; color:var(--brown-deep);}
+.info-card .price{margin-top:auto; border-top:1px solid var(--line); padding-top:14px;}
+.info-card .price small{display:block; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold);}
+.info-card .price b{font-family:var(--serif); font-size:26px; font-weight:500; color:var(--brown-deep);}
+.info-card.best{border:2px solid var(--olive-deep);}
+.badge{align-self:flex-start; background:var(--olive-deep); color:var(--cream); font-size:10.5px; letter-spacing:0.12em; text-transform:uppercase; padding:5px 13px; border-radius:100px; margin-bottom:14px;}
+.closing-line{font-family:var(--serif); font-style:italic; font-size:22px; color:var(--brown-deep); margin:28px 0 18px;}
+</style>
+
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3CLBPL3VN0"></script>
 <script>
@@ -51,76 +77,323 @@
 
 <main>
 
+  <!-- Hero -->
   <section class="page-hero">
     <div class="wrap">
       <span class="eyebrow">02 - Corporate Coaching</span>
-      <h1>Build healthier, more resilient teams.</h1>
-      <p>A long-term wellbeing partnership for companies who want their people to thrive, not just survive.</p>
+      <h1>Corporate Stress Management, Resilience &amp; Employee Wellbeing Programmes</h1>
+      <p>Helping Organisations Build Healthier, More Resilient and High-Performing Teams</p>
+      <a href="#programmes" class="btn btn-cream" style="margin-top:22px;">See programmes and investment</a>
     </div>
   </section>
 
+  <!-- Intro -->
   <section class="section reveal">
     <div class="wrap about-grid">
       <div class="ph help-card career" style="aspect-ratio:4/5; background-image:url('img/corporate_coaching.jpg');"></div>
       <div>
         <span class="eyebrow left">The Work</span>
-        <h2 class="section-title">Healthier teams, built to last.</h2>
-        <p style="margin-bottom:18px;">Corporate Coaching is a long-term wellbeing partnership designed for companies who want healthier, more resilient teams. It's offered as structured packages - 3-month, 6-month, 12-month, and extended multi-year plans.</p>
-        <p>Every plan is shaped around your organisation's real pressures, so support feels practical, not theoretical.</p>
+        <h2 class="section-title">Investing in people.</h2>
+        <p style="margin-bottom:18px;">People are at the heart of every successful organisation. When employees are equipped with the tools to manage stress effectively, communicate confidently, and adapt to challenges, they are better able to perform, collaborate, and thrive.</p>
+        <p style="margin-bottom:18px;">In today's fast-paced workplace, increasing workloads, constant change, and competing priorities can impact wellbeing, productivity, engagement, and performance. Left unmanaged, these pressures can contribute to overwhelm, absenteeism, burnout, and staff turnover.</p>
+        <p style="margin-bottom:18px;">At <strong>Coaching with Katrina</strong>, we partner with organisations to help employees manage stress, strengthen resilience, improve communication, and develop sustainable work practices that support both wellbeing and performance.</p>
+        <p>Our programmes combine professional training, practical workplace strategies, guided reflection, breathwork, and mindfulness techniques to create meaningful and lasting change.</p>
       </div>
     </div>
   </section>
 
+  <!-- Benefits -->
   <section class="section tight alt reveal">
     <div class="wrap">
-      <span class="eyebrow left">1:1 Sessions</span>
-      <h2 class="section-title">Focus areas include</h2>
-      <ul style="margin-top:20px; display:flex; flex-direction:column; gap:9px; max-width:640px;">
-        <li style="font-size:14px; padding-left:20px; position:relative; line-height:1.5;">Burnout prevention and cure - stabilising, regulating, and rebuilding capacity.</li>
-        <li style="font-size:14px; padding-left:20px; position:relative; line-height:1.5;">Emotional regulation - tools employees can use in real time.</li>
-        <li style="font-size:14px; padding-left:20px; position:relative; line-height:1.5;">Handling extreme workplace stress - resilience and self-leadership.</li>
-        <li style="font-size:14px; padding-left:20px; position:relative; line-height:1.5;">Moving forward when feeling stagnant or overloaded - practical and emotional strategies.</li>
-        <li style="font-size:14px; padding-left:20px; position:relative; line-height:1.5;">Communication skills - clarity, conflict navigation, and grounded expression.</li>
-        <li style="font-size:14px; padding-left:20px; position:relative; line-height:1.5;">Time management - healthier structures for demanding environments.</li>
+      <span class="eyebrow left">Why It Matters</span>
+      <h2 class="section-title">Organisational Benefits</h2>
+      <ul class="bullets cols">
+        <li>Improved employee wellbeing and morale</li>
+        <li>Increased productivity and focus</li>
+        <li>Greater resilience and adaptability</li>
+        <li>Enhanced communication and collaboration</li>
+        <li>Reduced workplace stress</li>
+        <li>Reduced stress-related absenteeism</li>
+        <li>Improved employee retention</li>
+        <li>Stronger workplace culture</li>
+        <li>Sustainable long-term performance</li>
       </ul>
     </div>
   </section>
 
+  <!-- Focus areas -->
   <section class="section reveal">
     <div class="wrap">
-      <span class="eyebrow left">How It Works</span>
-      <h2 class="section-title">The process</h2>
-      <div class="process">
-        <div class="step">
-          <span class="n">01</span>
-          <h4>Initial conversation</h4>
-          <p>We discuss your team's needs, size, and current pressures.</p>
+      <span class="eyebrow left">What We Cover</span>
+      <h2 class="section-title">Programme Focus Areas</h2>
+      <div class="card-grid">
+
+        <div class="info-card">
+          <h3>Stress Management, Emotional Regulation &amp; Sustainable Work Practices</h3>
+          <p>Helping employees manage pressure, regulate emotions, improve focus, and develop healthier work habits.</p>
+          <h4>Topics Include</h4>
+          <ul class="bullets">
+            <li>Understanding stress and stress triggers</li>
+            <li>Emotional regulation</li>
+            <li>Focus and productivity</li>
+            <li>Professional boundaries</li>
+            <li>Preventing overwhelm and fatigue</li>
+            <li>Sustainable work practices</li>
+          </ul>
+          <h4>Outcomes</h4>
+          <p>Employees gain practical tools to manage stress and regulate emotions. By improving focus and building healthier work habits, they are able to reduce overwhelm and maintain performance. The result is a more resilient, engaged, and effective workforce capable of performing well under pressure while protecting their wellbeing.</p>
         </div>
-        <div class="step">
-          <span class="n">02</span>
-          <h4>Custom proposal</h4>
-          <p>A package length and structure tailored to your organisation.</p>
+
+        <div class="info-card">
+          <h3>Time &amp; Energy Management</h3>
+          <p>Helping employees use their time and energy more effectively and manage their workload.</p>
+          <h4>Topics Include</h4>
+          <ul class="bullets">
+            <li>Time management and prioritisation</li>
+            <li>Energy and workload management</li>
+          </ul>
+          <h4>Outcomes</h4>
+          <p>Employees gain practical tools to use their time and energy more effectively. By improving prioritisation and workload management, they are able to reduce overwhelm, work more efficiently, and maintain higher levels of productivity and performance.</p>
         </div>
-        <div class="step">
-          <span class="n">03</span>
-          <h4>1:1 sessions begin</h4>
-          <p>Employees get dedicated, confidential coaching space.</p>
+
+        <div class="info-card">
+          <h3>Resilience &amp; Self-Leadership</h3>
+          <p>Developing confidence, adaptability, self-awareness, and the ability to navigate challenges with greater resilience.</p>
+          <h4>Topics Include</h4>
+          <ul class="bullets">
+            <li>Building resilience</li>
+            <li>Self-awareness</li>
+            <li>Confidence and self-trust</li>
+            <li>Personal accountability</li>
+            <li>Managing change and uncertainty</li>
+            <li>Decision-making under pressure</li>
+          </ul>
+          <h4>Outcomes</h4>
+          <p>Employees become more adaptable, confident, and proactive when facing workplace challenges. They develop the ability to navigate change more effectively, respond constructively to setbacks, and maintain motivation and performance during periods of uncertainty.</p>
         </div>
-        <div class="step">
-          <span class="n">04</span>
-          <h4>Ongoing check-ins</h4>
-          <p>We track progress and adjust the plan as your team evolves.</p>
+
+        <div class="info-card">
+          <h3>Communication &amp; Workplace Relationships</h3>
+          <p>Strengthening communication skills to improve collaboration, trust, and professional relationships.</p>
+          <h4>Topics Include</h4>
+          <ul class="bullets">
+            <li>Understanding verbal and non-verbal communication</li>
+            <li>Effective communication</li>
+            <li>Active listening</li>
+            <li>Giving and receiving feedback</li>
+            <li>Difficult conversations</li>
+            <li>Conflict resolution</li>
+            <li>Assertiveness</li>
+            <li>Building trust and collaboration</li>
+          </ul>
+          <h4>Outcomes</h4>
+          <p>Employees communicate with greater clarity, confidence, and professionalism. Improved communication helps strengthen workplace relationships, reduce misunderstandings, encourage collaboration, and build stronger, more cohesive teams.</p>
         </div>
+
+        <div class="info-card">
+          <h3>Burnout Prevention &amp; Recovery</h3>
+          <p>Supporting employees in recognising burnout risks and developing strategies for prevention and recovery.</p>
+          <h4>Topics Include</h4>
+          <ul class="bullets">
+            <li>Understanding burnout</li>
+            <li>Early warning signs</li>
+            <li>Burnout risk factors</li>
+            <li>Recovery strategies</li>
+            <li>Sustainable wellbeing habits</li>
+          </ul>
+          <h4>Outcomes</h4>
+          <p>Employees gain a better understanding of burnout and learn how to recognise warning signs before they escalate. They develop healthier working habits, improve self-awareness, and build strategies that support long-term wellbeing, resilience, and sustainable performance.</p>
+        </div>
+
+        <div class="info-card">
+          <h3>Breathwork, Mindfulness &amp; Guided Reflection</h3>
+          <p>Practical techniques designed to improve focus, emotional balance, mental clarity, and overall wellbeing.</p>
+          <h4>Topics Include</h4>
+          <ul class="bullets">
+            <li>Breathwork for stress reduction</li>
+            <li>Mindfulness practices</li>
+            <li>Guided reflection</li>
+            <li>Emotional awareness</li>
+            <li>Mental reset techniques</li>
+          </ul>
+          <h4>Outcomes</h4>
+          <p>Employees learn practical techniques to calm the nervous system, improve concentration, increase emotional awareness, and develop greater mental clarity. These skills support improved wellbeing, resilience, and performance in the workplace.</p>
+        </div>
+
       </div>
-      <p class="price-tag" style="margin-top:32px;">Terms to be discussed and agreed upon in person.</p>
     </div>
   </section>
 
-  <section class="section tight reveal" style="text-align:center;">
+  <!-- Delivery -->
+  <section class="section tight alt reveal">
     <div class="wrap">
-      <a href="contact.html" class="btn btn-solid">Enquire About Corporate Coaching</a>
+      <span class="eyebrow left">How It's Delivered</span>
+      <h2 class="section-title">Programme Delivery</h2>
+      <p>All programmes are delivered through engaging and interactive group training sessions designed to provide practical tools and immediate workplace application.</p>
+      <div class="card-grid">
+        <div class="info-card">
+          <h3>Sessions Include</h3>
+          <ul class="bullets">
+            <li>Professional presentations and training</li>
+            <li>Interactive group discussions</li>
+            <li>Practical workplace exercises</li>
+            <li>Reflection activities</li>
+            <li>Stress management tools</li>
+            <li>Emotional regulation techniques</li>
+            <li>Breathwork and mindfulness practices</li>
+            <li>Action planning and implementation strategies</li>
+          </ul>
+        </div>
+        <div class="info-card">
+          <h3>Delivery Format</h3>
+          <ul class="bullets">
+            <li>One session every two weeks</li>
+            <li>3 to 4 hours per session</li>
+            <li>Available onsite, online, or hybrid</li>
+            <li>Suitable for teams, departments, and organisation-wide initiatives</li>
+            <li>Recommended group size: 10 to 30 participants</li>
+            <li>Larger groups available upon request</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
+
+  <!-- Programmes & investment -->
+  <section class="section reveal" id="programmes">
+    <div class="wrap">
+      <span class="eyebrow left">Pricing</span>
+      <h2 class="section-title">Programmes &amp; Investment</h2>
+      <p>Each programme builds on the one before it, so your team learns more, practises more and keeps more of it as the programme gets longer.</p>
+
+      <div class="card-grid two">
+
+        <div class="info-card">
+          <h3>Employee Wellbeing &amp; Performance Discovery Programme</h3>
+          <p class="fmt">A Half-Day Corporate Training Experience</p>
+          <p>A practical introduction to stress management, resilience, emotional wellbeing, and sustainable performance in the workplace.</p>
+          <h4>Includes</h4>
+          <ul class="bullets">
+            <li>One half-day session (4 - 5 hours)</li>
+            <li>Practical strategies to manage workplace pressures more effectively</li>
+            <li>Tools to improve focus and productivity</li>
+          </ul>
+          <h4>What your team learns</h4>
+          <ul class="bullets">
+            <li>Understanding stress and stress triggers</li>
+            <li>An introduction to emotional regulation</li>
+            <li>An introduction to breathwork and mindfulness practices</li>
+          </ul>
+          <div class="price"><small>Investment</small><b>From €3,000</b></div>
+        </div>
+
+        <div class="info-card">
+          <h3>3-Month Foundation Programme</h3>
+          <p class="fmt">Building the Foundations of Wellbeing, Resilience and Performance</p>
+          <p>Six sessions, one every two weeks, give your team the time to learn the core tools and practise them at work between sessions.</p>
+          <h4>Includes</h4>
+          <ul class="bullets">
+            <li>6 training sessions</li>
+            <li>18 to 24 training hours</li>
+            <li>Practical tools and resources</li>
+            <li>Workplace implementation strategies</li>
+          </ul>
+          <h4>What your team learns</h4>
+          <ul class="bullets">
+            <li>Stress management and understanding stress triggers</li>
+            <li>Emotional regulation</li>
+            <li>Time management and prioritisation</li>
+            <li>Energy and workload management</li>
+            <li>Focus and productivity</li>
+            <li>Professional boundaries</li>
+            <li>Breathwork, mindfulness and guided reflection</li>
+          </ul>
+          <p><strong>The result:</strong> employees gain practical tools to manage stress, regulate emotions, and use their time and energy more effectively.</p>
+          <div class="price"><small>Investment</small><b>From €7,500</b></div>
+        </div>
+
+        <div class="info-card">
+          <h3>6-Month Growth &amp; Resilience Programme</h3>
+          <p class="fmt">Creating Sustainable Behavioural Change Across Teams</p>
+          <p>Twelve sessions go beyond the foundations. Your team builds new habits, strengthens how they work together, and has the time to make the change last.</p>
+          <p class="plus">Everything in the 3-Month Foundation Programme, plus:</p>
+          <h4>Includes</h4>
+          <ul class="bullets">
+            <li>12 training sessions</li>
+            <li>36 to 48 training hours</li>
+            <li>Advanced wellbeing and resilience training</li>
+            <li>Communication and collaboration development</li>
+            <li>Team wellbeing support</li>
+          </ul>
+          <h4>What your team also learns</h4>
+          <ul class="bullets">
+            <li>Building resilience and self-awareness</li>
+            <li>Confidence and self-trust</li>
+            <li>Managing change and uncertainty</li>
+            <li>Decision-making under pressure</li>
+            <li>Active listening and giving and receiving feedback</li>
+            <li>Difficult conversations and conflict resolution</li>
+            <li>Assertiveness and building trust and collaboration</li>
+          </ul>
+          <p><strong>The result:</strong> employees become more adaptable, confident, and proactive, and communicate with greater clarity, which builds stronger, more cohesive teams.</p>
+          <div class="price"><small>Investment</small><b>From €15,000</b></div>
+        </div>
+
+        <div class="info-card best">
+          <span class="badge">Most comprehensive</span>
+          <h3>12-Month Strategic Wellbeing Partnership</h3>
+          <p class="fmt">Embedding Wellbeing and Resilience into Organisational Culture</p>
+          <p>Twenty-four sessions across a full year. Wellbeing becomes part of how your organisation works, with leadership support and regular reviews along the way.</p>
+          <p class="plus">Everything in the 6-Month Growth &amp; Resilience Programme, plus:</p>
+          <h4>Includes</h4>
+          <ul class="bullets">
+            <li>24 training sessions</li>
+            <li>72 to 96 training hours</li>
+            <li>Ongoing employee wellbeing training</li>
+            <li>Leadership support</li>
+            <li>Quarterly review meetings</li>
+            <li>Tailored programme development</li>
+            <li>Continuous guidance and implementation support</li>
+          </ul>
+          <h4>What your team also learns</h4>
+          <ul class="bullets">
+            <li>Understanding burnout and its risk factors</li>
+            <li>Recognising early warning signs before they escalate</li>
+            <li>Recovery strategies</li>
+            <li>Sustainable wellbeing habits</li>
+            <li>Sustainable work practices across the whole team</li>
+          </ul>
+          <p><strong>The result:</strong> healthier working habits, stronger long-term resilience and a workplace culture that supports wellbeing and sustainable performance.</p>
+          <div class="price"><small>Investment</small><b>From €30,000</b></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Executive & individual coaching -->
+  <section class="section tight alt reveal">
+    <div class="wrap">
+      <span class="eyebrow left">1:1 Support</span>
+      <h2 class="section-title">Executive &amp; Individual Coaching</h2>
+      <p>Alongside group programmes, confidential one-to-one coaching is available for executives, managers, and employees seeking personalised support.</p>
+      <h3 style="font-size:20px; margin:28px 0 8px;">Areas of Focus</h3>
+      <ul class="bullets cols">
+        <li>Stress management</li>
+        <li>Burnout recovery</li>
+        <li>Leadership development</li>
+        <li>Confidence building</li>
+        <li>Workplace challenges and workshops</li>
+        <li>Emotional resilience</li>
+        <li>Role transitions within the organisation</li>
+      </ul>
+      <p style="margin-top:16px;">One-to-one coaching may be incorporated into a wider corporate wellbeing programme or provided as a standalone service.</p>
+      <p><strong>Investment:</strong> Available upon consultation.</p>
+      <a href="contact.html" class="btn btn-solid" style="margin-top:8px;">Get in touch</a>
+    </div>
+  </section>
+
+  
 
 </main>
 
